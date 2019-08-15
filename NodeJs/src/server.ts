@@ -3,11 +3,13 @@ import Koa from 'koa';
 import mount from 'koa-mount';
 
 import files from './controllers/files';
+import filesBson from './controllers/files-bson';
 
 let  app = new Koa();
 
 // routes configuration
 app.use(mount('/fs', files()));
+app.use(mount('/fs', filesBson()));
 
 // server configuration
 
