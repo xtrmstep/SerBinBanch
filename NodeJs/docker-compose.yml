@@ -1,6 +1,9 @@
 version: '3'
 services:
-  web:
+  server:
     image: "serninbanch.nodejs.server"
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile.server
     ports:
       - "3000:3000"

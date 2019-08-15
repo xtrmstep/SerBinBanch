@@ -18,11 +18,13 @@ async function replyOk(ctx: Koa.Context) {
 
 async function streamFileBson(ctx: Koa.Context){
     let items = jsonContent.slice(1,3);
-    let bsonBuffer = Bson.serialize(items);
-    console.log(bsonBuffer);
 
+    let buffer = Bson.serialize(items).buffer;
+    let binaryObj = new Uint8Array(buffer);
+    let binary = Array.from(binaryObj);
+
+    ctx.body = binary;
     ctx.set('Content-Type', 'application/bson');
-    ctx.body = bsonBuffer;
 }
 
 async function streamFileFlatBuffers(ctx: Koa.Context){

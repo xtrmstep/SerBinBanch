@@ -15,10 +15,12 @@ async function readFileBson(ctx: Koa.Context){
     ctx.body = 'OK';
 
     const url = `${ENDPOINT_URL}/bsn`;
-    console.log(url);
-    let bsonObject = await Axios.get(url);
-    let buf = Buffer.from(bsonObject.data);
-    let json = Bson.deserialize(buf);
+
+    let bsonResponse = await Axios.get(url);
+    let binary = Uint8Array.from(bsonResponse.data);
+    let buffer = Buffer.from(binary);
+    let json = Bson.deserialize(buffer);
+
     console.log(json);
 }
 
