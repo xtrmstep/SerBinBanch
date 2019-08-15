@@ -1,6 +1,9 @@
 import Koa from 'koa';
 import Router from 'koa-router';
+import Axios from 'axios';
+import Bson from 'bson';
 
+const ENDPOINT_URL = 'http://localhost:3000/fs';
 const router = new Router();
 
 async function replyOk(ctx: Koa.Context) {
@@ -10,6 +13,13 @@ async function replyOk(ctx: Koa.Context) {
 
 async function readFileBson(ctx: Koa.Context){
     ctx.body = 'OK';
+
+    const url = `${ENDPOINT_URL}/bsn`;
+    console.log(url);
+    let bsonObject = await Axios.get(url);
+    let buf = Buffer.from(bsonObject.data);
+    let json = Bson.deserialize(buf);
+    console.log(json);
 }
 
 async function readFileFlatBuffers(ctx: Koa.Context){

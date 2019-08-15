@@ -1,0 +1,8 @@
+FROM node:10.16.2
+WORKDIR /app
+COPY package*.json /app/
+RUN npm i
+COPY . /app
+CMD npm run server
+EXPOSE 3000
+

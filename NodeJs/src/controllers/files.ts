@@ -1,6 +1,7 @@
 import fs from 'fs';
 import Koa from 'koa';
 import Router from 'koa-router';
+import Bson from 'bson';
 
 // load JSON to memory when server is started
 let content = fs.readFileSync('./src/data/file1mb.json');
@@ -16,7 +17,12 @@ async function replyOk(ctx: Koa.Context) {
 // this list of methods would start streaming JSON item by item
 
 async function streamFileBson(ctx: Koa.Context){
-    ctx.body = 'OK';
+    let items = jsonContent.slice(1,3);
+    let bsonBuffer = Bson.serialize(items);
+    console.log(bsonBuffer);
+
+    ctx.set('Content-Type', 'application/bson');
+    ctx.body = bsonBuffer;
 }
 
 async function streamFileFlatBuffers(ctx: Koa.Context){

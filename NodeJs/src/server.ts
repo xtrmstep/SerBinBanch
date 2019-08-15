@@ -11,9 +11,9 @@ app.use(mount('/fs', files()));
 
 // server configuration
 
-const HOST = 'localhost';
+//const HOST = 'localhost';
 const HTTP_PORT = 3000;
-http.createServer(app.callback()).listen(HTTP_PORT, HOST, () => {console.log(`Server is listening on http://${HOST}:${HTTP_PORT}...`);});
+http.createServer(app.callback()).listen(HTTP_PORT, () => {console.log(`Server is listening on port ${HTTP_PORT}...`);});
 
 
 // import https from 'https';
