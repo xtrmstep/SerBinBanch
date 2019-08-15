@@ -1,5 +1,10 @@
+import fs from 'fs';
 import Koa from 'koa';
 import Router from 'koa-router';
+
+// load JSON to memory when server is started
+let content = fs.readFileSync('./src/data/file1mb.json');
+let jsonContent = JSON.parse(content.toString());
 
 const router = new Router();
 
@@ -7,6 +12,8 @@ async function replyOk(ctx: Koa.Context) {
     let timeNow = new Date();
     ctx.body = `Alive! It is ${timeNow} now`;
 }
+
+// this list of methods would start streaming JSON item by item
 
 async function streamFileBson(ctx: Koa.Context){
     ctx.body = 'OK';
