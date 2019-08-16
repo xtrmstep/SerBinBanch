@@ -10,10 +10,6 @@ async function replyOk(ctx: Koa.Context) {
     ctx.body = `Alive! It is ${timeNow} now`;
 }
 
-async function readFileMessagePack(ctx: Koa.Context){
-    ctx.body = 'OK';
-}
-
 async function readFileProtocolBuffers(ctx: Koa.Context){
     ctx.body = 'OK';
 }
@@ -36,7 +32,6 @@ async function readFileProtostuff(ctx: Koa.Context){
 
 router
     .get('/', replyOk)
-    .get('/mpk', readFileMessagePack)
     .get('/pbf', readFileProtocolBuffers)
     .get('/thf', readFileThrift)
     .get('/avr', readFileAvro)
