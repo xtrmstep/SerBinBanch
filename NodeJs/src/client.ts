@@ -3,11 +3,13 @@ import Koa from 'koa';
 import mount from 'koa-mount';
 
 import readers from './controllers/readers';
+import readersBson from './controllers/readers-bson';
 
 let  app = new Koa();
 
 // routes configuration
 app.use(mount('/readers', readers()));
+app.use(mount('/readers', readersBson()));
 
 // server configuration
 

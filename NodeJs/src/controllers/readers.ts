@@ -1,7 +1,6 @@
 import Koa from 'koa';
 import Router from 'koa-router';
 import Axios from 'axios';
-import Bson from 'bson';
 import { flatbuffers } from 'flatbuffers';
 import {FlatBuffersSample} from "../data/flatBuffers/schema_generated";
 
@@ -11,19 +10,6 @@ const router = new Router();
 async function replyOk(ctx: Koa.Context) {
     let timeNow = new Date();
     ctx.body = `Alive! It is ${timeNow} now`;
-}
-
-async function readFileBson(ctx: Koa.Context){
-    ctx.body = 'OK';
-
-    const url = `${ENDPOINT_URL}/bsn`;
-
-    let bsonResponse = await Axios.get(url);
-    let binary = Uint8Array.from(bsonResponse.data);
-    let buffer = Buffer.from(binary);
-    let json = Bson.deserialize(buffer);
-
-    console.log(json);
 }
 
 async function readFileFlatBuffers(ctx: Koa.Context){
@@ -71,7 +57,6 @@ async function readFileProtostuff(ctx: Koa.Context){
 
 router
     .get('/', replyOk)
-    .get('/bsn', readFileBson)
     .get('/flb', readFileFlatBuffers)
     .get('/mpk', readFileMessagePack)
     .get('/pbf', readFileProtocolBuffers)
