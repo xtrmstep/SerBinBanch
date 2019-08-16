@@ -97,7 +97,7 @@ async function streamFileFlatBuffers(ctx: Koa.Context){
 }
 
 router
-    .get('/flb', streamFileFlatBuffers);
+    .get('/fbs', streamFileFlatBuffers);
 
 export default () => {
     return router.middleware();

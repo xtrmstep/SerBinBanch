@@ -4,7 +4,7 @@ import mount from 'koa-mount';
 
 import files from './controllers/files';
 import filesBson from './controllers/files-bson';
-import fileFlatBuffers from './controllers/files-flatbuffers';
+import fileFlatBuffers from './controllers/files-fbs';
 
 let  app = new Koa();
 
