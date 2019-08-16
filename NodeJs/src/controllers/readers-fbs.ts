@@ -2,7 +2,7 @@ import Koa from 'koa';
 import Router from 'koa-router';
 import Axios from 'axios';
 import { flatbuffers } from 'flatbuffers';
-import {FlatBuffersSample} from "../data/flatBuffers/schema_generated";
+import {FlatBuffersSample} from "../schemas/flatBuffers/schema_generated";
 
 const ENDPOINT_URL = 'http://localhost:3000/fs';
 const router = new Router();

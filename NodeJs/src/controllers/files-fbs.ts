@@ -1,7 +1,7 @@
 import Koa from 'koa';
 import Router from 'koa-router';
 import { flatbuffers } from 'flatbuffers';
-import {FlatBuffersSample} from '../data/flatBuffers/schema_generated';
+import {FlatBuffersSample} from '../schemas/flatBuffers/schema_generated';
 import jsonContent from '../data/data-provider';
 
 const router = new Router();
