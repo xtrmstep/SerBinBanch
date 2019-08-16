@@ -15,7 +15,6 @@ async function streamFileFlatBuffers(ctx: Koa.Context){
     // people
     let people : flatbuffers.Offset[] = [];
     items.forEach((item: any) => {
-        console.log(item);
 
         // tags
         let tags : flatbuffers.Offset[] = [];
