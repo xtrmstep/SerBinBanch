@@ -6,6 +6,7 @@ import files from './controllers/files';
 import filesBson from './controllers/files-bson';
 import fileFlatBuffers from './controllers/files-fbs';
 import fileMsgpck from './controllers/files-msgpck';
+import fileThrift from './controllers/files-thrift';
 
 let  app = new Koa();
 
@@ -14,6 +15,7 @@ app.use(mount('/fs', files()));
 app.use(mount('/fs', filesBson()));
 app.use(mount('/fs', fileFlatBuffers()));
 app.use(mount('/fs', fileMsgpck()));
+app.use(mount('/fs', fileThrift()));
 
 // server configuration
 

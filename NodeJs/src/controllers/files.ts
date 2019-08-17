@@ -14,10 +14,6 @@ async function streamFileProtocolBuffers(ctx: Koa.Context){
     ctx.body = 'OK';
 }
 
-async function streamFileThrift(ctx: Koa.Context){
-    ctx.body = 'OK';
-}
-
 async function streamFileAvro(ctx: Koa.Context){
     ctx.body = 'OK';
 }
@@ -34,7 +30,6 @@ async function streamFileProtostuff(ctx: Koa.Context){
 router
     .get('/', replyOk)
     .get('/pbf', streamFileProtocolBuffers)
-    .get('/thf', streamFileThrift)
     .get('/avr', streamFileAvro)
     .get('/col', streamFileColfer)
     .get('/psf', streamFileProtostuff);
