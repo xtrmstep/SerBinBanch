@@ -10,6 +10,7 @@ import readersThrifts from './controllers/readers-thrift';
 import readersProtobuffs from './controllers/readers-protobuffs';
 import readersAvro from './controllers/readers-avro';
 import readersColfer from './controllers/readers-colfer';
+import readersProtostuff from './controllers/readers-protostuff';
 
 let  app = new Koa();
 
@@ -22,6 +23,7 @@ app.use(mount('/readers', readersThrifts()));
 app.use(mount('/readers', readersProtobuffs()));
 app.use(mount('/readers', readersAvro()));
 app.use(mount('/readers', readersColfer()));
+app.use(mount('/readers', readersProtostuff()));
 
 // server configuration
 

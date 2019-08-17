@@ -10,6 +10,7 @@ import fileThrift from './controllers/files-thrift';
 import fileProtobuffs from './controllers/files-protobuffs';
 import fileAvro from './controllers/files-avro';
 import fileColfer from './controllers/files-colfer';
+import fileProtostuff from './controllers/files-protostuff';
 
 let  app = new Koa();
 
@@ -22,6 +23,7 @@ app.use(mount('/fs', fileThrift()));
 app.use(mount('/fs', fileProtobuffs()));
 app.use(mount('/fs', fileAvro()));
 app.use(mount('/fs', fileColfer()));
+app.use(mount('/fs', fileProtostuff()));
 
 // server configuration
 
