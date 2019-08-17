@@ -9,6 +9,7 @@ import fileMsgpck from './controllers/files-msgpck';
 import fileThrift from './controllers/files-thrift';
 import fileProtobuffs from './controllers/files-protobuffs';
 import fileAvro from './controllers/files-avro';
+import fileColfer from './controllers/files-colfer';
 
 let  app = new Koa();
 
@@ -20,6 +21,7 @@ app.use(mount('/fs', fileMsgpck()));
 app.use(mount('/fs', fileThrift()));
 app.use(mount('/fs', fileProtobuffs()));
 app.use(mount('/fs', fileAvro()));
+app.use(mount('/fs', fileColfer()));
 
 // server configuration
 

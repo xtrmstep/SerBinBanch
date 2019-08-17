@@ -9,6 +9,7 @@ import readersMsgpck from './controllers/readers-msgpck';
 import readersThrifts from './controllers/readers-thrift';
 import readersProtobuffs from './controllers/readers-protobuffs';
 import readersAvro from './controllers/readers-avro';
+import readersColfer from './controllers/readers-colfer';
 
 let  app = new Koa();
 
@@ -20,6 +21,7 @@ app.use(mount('/readers', readersMsgpck()));
 app.use(mount('/readers', readersThrifts()));
 app.use(mount('/readers', readersProtobuffs()));
 app.use(mount('/readers', readersAvro()));
+app.use(mount('/readers', readersColfer()));
 
 // server configuration
 

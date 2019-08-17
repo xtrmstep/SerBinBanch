@@ -8,19 +8,12 @@ async function replyOk(ctx: Koa.Context) {
     ctx.body = `Alive! It is ${timeNow} now`;
 }
 
-// this list of methods would start streaming JSON item by item
-
-async function streamFileColfer(ctx: Koa.Context){
-    ctx.body = 'OK';
-}
-
 async function streamFileProtostuff(ctx: Koa.Context){
     ctx.body = 'OK';
 }
 
 router
     .get('/', replyOk)
-    .get('/col', streamFileColfer)
     .get('/psf', streamFileProtostuff);
 
 export default () => {
