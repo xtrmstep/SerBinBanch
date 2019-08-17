@@ -9,11 +9,6 @@ async function replyOk(ctx: Koa.Context) {
     let timeNow = new Date();
     ctx.body = `Alive! It is ${timeNow} now`;
 }
-
-async function readFileProtocolBuffers(ctx: Koa.Context){
-    ctx.body = 'OK';
-}
-
 async function readFileAvro(ctx: Koa.Context){
     ctx.body = 'OK';
 }
@@ -28,7 +23,6 @@ async function readFileProtostuff(ctx: Koa.Context){
 
 router
     .get('/', replyOk)
-    .get('/pbf', readFileProtocolBuffers)
     .get('/avr', readFileAvro)
     .get('/col', readFileColfer)
     .get('/psf', readFileProtostuff);

@@ -9,11 +9,6 @@ async function replyOk(ctx: Koa.Context) {
 }
 
 // this list of methods would start streaming JSON item by item
-
-async function streamFileProtocolBuffers(ctx: Koa.Context){
-    ctx.body = 'OK';
-}
-
 async function streamFileAvro(ctx: Koa.Context){
     ctx.body = 'OK';
 }
@@ -29,7 +24,6 @@ async function streamFileProtostuff(ctx: Koa.Context){
 
 router
     .get('/', replyOk)
-    .get('/pbf', streamFileProtocolBuffers)
     .get('/avr', streamFileAvro)
     .get('/col', streamFileColfer)
     .get('/psf', streamFileProtostuff);
