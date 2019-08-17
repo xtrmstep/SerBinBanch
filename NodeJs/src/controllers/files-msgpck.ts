@@ -13,7 +13,8 @@ async function streamFileMessagePack(ctx: Koa.Context){
     let binary = Array.from(binaryObj);
 
     ctx.body = binary;
-    ctx.set('Content-Type', 'application/msgpck');
+    // ctx.set('Content-Type', 'application/msgpck');
+    ctx.set('Content-Type', 'application/octet-stream');
 }
 
 router
