@@ -10,8 +10,8 @@ async function readFileMessagePack(ctx: Koa.Context){
     const url = `${ENDPOINT_URL}/mpk`;
 
     let response = await Axios.get(url);
-    let binary = Uint8Array.from(response.data);
-    let buffer = Buffer.from(binary);
+    console.log(response.data);
+    let buffer = Buffer.from(response.data);
     let json = msgpack.decode(buffer);
 
     // console.log(json);

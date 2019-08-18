@@ -1,4 +1,6 @@
-{
+[
+  '{{repeat(1000)}}',
+  {
     _id: '{{objectId()}}',
     index: '{{index()}}',
     guid: '{{guid()}}',
@@ -29,10 +31,11 @@
       }
     ],
     greeting: function (tags) {
-      return 'Hello, ' + this.name + '! You have ' + tags.integer(1, 10) + ' unread messages.';
-    },
-    favoriteFruit: function (tags) {
-      var fruits = ['apple', 'banana', 'strawberry'];
-      return fruits[tags.integer(0, fruits.length - 1)];
-    }
-  }
+  return 'Hello, ' + this.name + '! You have ' + tags.integer(1, 10) + ' unread messages.';
+},
+  favoriteFruit: function (tags) {
+  var fruits = ['apple', 'banana', 'strawberry'];
+  return fruits[tags.integer(0, fruits.length - 1)];
+}
+}
+]
